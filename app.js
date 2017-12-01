@@ -7,6 +7,16 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var mongoose = require('mongoose');
+
+var dbUrl = 'mongodb://localhost/jkcodes-cc'
+mongoose.connect(dbUrl, function(err, res) {
+  if (err) {
+    console.log('DB Connection Failed: ' + err)
+  } else {
+    console.log('DB Connection Success: ' + dbUrl)
+  }
+})
 
 var app = express();
 
